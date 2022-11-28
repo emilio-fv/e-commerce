@@ -2,7 +2,7 @@ import React from "react";
 import LoginForm from "../components/LoginForm";
 import RegisterForm from "../components/RegisterForm";
 
-const LandingPage = () => {
+const LoginReg = () => {
     return (
         <>
             <RegisterForm />
@@ -11,4 +11,4 @@ const LandingPage = () => {
     )
 }
 
-export default LandingPage;
+export default LoginReg;
