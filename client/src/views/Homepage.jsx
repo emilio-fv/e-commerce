@@ -32,7 +32,7 @@ const ExampleProducts = [
 const Homepage = (props) => {
   return(
     <>
-    <CssBaseline/>
+      <CssBaseline/>
       <Navbar />
       <main>
 {/* TODO: Opening banner */}
