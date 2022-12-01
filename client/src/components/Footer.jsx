@@ -4,9 +4,9 @@ import { Box, Container, Grid, Typography, Link } from "@mui/material"
 export default function Footer() {
     return (
         <footer>
-            <Box bgcolor="#1976D2" color="white">
+            <Box bgcolor="#1976D2" color="white" sx={{ py: '3rem'}}>
                 <Container maxWidth="lg">
-                    <Grid container spacing={5}>
+                    <Grid container spacing={5} >
                         <Grid item xs={12} sm={4}>
                             <Box>
                                 <Typography variant="h6">Products</Typography>

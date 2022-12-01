@@ -2,9 +2,7 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import productImage from "../images/blue-t-shirt.jpg"
-import { Box, Container, Typography, Stack, Card, CardActionArea, CardContent, CardMedia } from '@mui/material';
-// import Container from '@mui/material/Container';
-// import Typography from '@mui/material/Typography';
+import { Box, Container, Typography, Stack, Card, CardActionArea, CardContent, CardMedia, CssBaseline } from '@mui/material';
 
 const Categories = ['Unisex', 'Women', 'Men', 'Sale'];
 const ExampleProducts = [
@@ -34,10 +32,11 @@ const ExampleProducts = [
 const Homepage = (props) => {
   return(
     <>
+    <CssBaseline/>
       <Navbar />
       <main>
-        {/* TODO: Opening banner */}
-        {/* Shop By Category */}
+{/* TODO: Opening banner */}
+{/* Shop By Category */}
         <Box sx={{ my: '3rem' }}>
           <Container maxWidth="sm">
               <Box sx={{ mb: '1rem' }}>
@@ -48,9 +47,8 @@ const Homepage = (props) => {
                   Categories.map((category) => (
                     <Card>
                       <CardActionArea>
-                        <CardMedia />
                         <CardContent>
-                          <Typography gutterBottom variant="h6">{ category }</Typography>
+                          <Typography gutterBottom variant="h6" sx={{ mt: '5px' }}>{ category }</Typography>
                         </CardContent>
                       </CardActionArea>
                     </Card>
@@ -58,13 +56,13 @@ const Homepage = (props) => {
               </Stack>
           </Container>
         </Box>
-        {/* Bestsellers */}
+{/* Bestsellers */}
         <Box sx={{ my: '3rem' }}>
           <Container maxWidth="lg">
             <Box sx={{ mb: '1rem' }}>
               <Typography variant="h6" align="center">Bestsellers</Typography>
             </Box>
-            <Stack direction={{ xs: 'column', sm: 'row' }} spacing={{ xs: 1, sm: 3, md: 15 }}>
+            <Box sx={{ display: 'flex', justifyContent: 'space-around', gap: '50px' }}>
               {
                 ExampleProducts.map((product) => (
                   <Card>
@@ -72,25 +70,24 @@ const Homepage = (props) => {
                       <CardMedia 
                         component="img"
                         alt="Product image"
-                        height="160"
+                        height="210"
                         src={ productImage } 
                       />
-                      <CardContent>
+                      <CardContent sx={{ display: 'flex', justifyContent: 'space-around' }}>
                         <Typography>{ product.name }</Typography>
                         <Typography>${ product.price }</Typography>
                       </CardContent>
                     </CardActionArea>
                   </Card>
               ))}
-            </Stack>
+            </Box>
           </Container>
         </Box>
-        {/* Sale Banner */}
-        <div>
-          <Container maxWidth="lg">
-            <img src="" alt="Sale Banner" />
-          </Container>
-        </div>
+{/* Sale Banner */}
+        <Box sx={{ bgcolor: '#0b3157', height: '200px', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', my: '7rem'}}>
+          <Typography gutterBottom='true' variant="h3" sx={{ color: 'white' }}>SALE</Typography>
+        </Box>
+
       </main>
       <Footer />
     </>
