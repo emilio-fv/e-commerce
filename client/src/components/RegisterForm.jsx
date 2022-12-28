@@ -15,7 +15,7 @@ const RegisterForm = () => {
       const handleSubmit = (e) => {
         e.preventDefault();
         console.log(newUser);
-        axios.post('http://localhost:8000/api/users/register', newUser, { withCredentials: true})
+        axios.post('http://localhost:8000/api/users/register', newUser, { withCredentials: true })
           .then(res => {
             console.log(res)
             navigate('/home');
