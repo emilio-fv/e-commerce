@@ -16,17 +16,21 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Navbar = (props) => {
-    const [ anchorElNav, setAnchorElNav ] = useState(null);
+    const [ anchorNav, setAnchorNav ] = useState(null);
     const navigate = useNavigate();
 
     const handleOpenNavMenu = (e) => {
-      setAnchorElNav(e.currentTarget);
+      setAnchorNav(e.currentTarget);
     };
 
     const handleProductLinkClick = (e, category) => {
-        setAnchorElNav(null);
+        setAnchorNav(null);
         navigate(`/products/${category}`);
     };
+
+    const handleAccountClick = (e) => {
+        navigate('/account');
+    }
 
     return (
         <AppBar position="sticky">
@@ -63,7 +67,7 @@ const Navbar = (props) => {
                         </IconButton>
                         <Menu
                             id="menu-appbar"
-                            anchorEl={anchorElNav}
+                            anchorEl={anchorNav}
                             anchorOrigin={{
                                 vertical: "bottom",
                                 horizontal: "left"
@@ -73,7 +77,7 @@ const Navbar = (props) => {
                                 vertical: "top",
                                 horizontal: "left"
                             }}
-                            open={Boolean(anchorElNav)}
+                            open={Boolean(anchorNav)}
                             onClose={handleProductLinkClick}
                             sx={{
                                 display: { xs: "block", md: "none"}
@@ -145,7 +149,7 @@ const Navbar = (props) => {
                     {/* Desktop/Mobile: Icons */}
                     <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Account">
-                            <IconButton>
+                            <IconButton onClick={handleAccountClick}>
                                 <AccountCircleOutlinedIcon />
                             </IconButton>
                         </Tooltip>

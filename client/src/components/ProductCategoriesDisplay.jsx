@@ -63,7 +63,7 @@ const ProductCategoriesDisplay = (props) => {
                                 color: 'black',
                                 fontWeight: 'normal'
                             }}
-                            onClick={e => handleClick(e,"")}
+                            onClick={e => handleClick(e,"men")}
                         >
                             Men
                         </Button>

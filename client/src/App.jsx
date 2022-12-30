@@ -18,7 +18,7 @@ function App() {
       <Routes>
         <Route path='/' element={ <Main /> }/>
         <Route path='/products/:category' element={ <Products /> }/>
-        {/* <Route path='/loginreg' element={ <LoginReg /> }/> */}
+        <Route path='/account' element={ <LoginReg /> }/>
       </Routes>
     </ThemeProvider>
     </>
