@@ -1,22 +1,24 @@
-import React, { } from 'react';
-import { Routes,Route } from 'react-router-dom';
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 import LoginReg from './views/LoginReg';
-import Homepage from './views/Homepage';
+import Main from './views/Main';
 import Products from './views/Products';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { createTheme, responsiveFontSizes, ThemeProvider } from '@mui/material/styles';
+import './App.css';
 
-const theme = createTheme({
-  
-})
+let theme = createTheme({
+});
+
+theme = responsiveFontSizes(theme);
 
 function App() {
   return (
     <>
     <ThemeProvider theme={theme}>
       <Routes>
-        <Route path='/' element={ <Homepage /> }/>
-        <Route path='/products' element={ <Products /> }/>
-        <Route path='/loginreg' element={ <LoginReg /> }/>
+        <Route path='/' element={ <Main /> }/>
+        <Route path='/products/:category' element={ <Products /> }/>
+        {/* <Route path='/loginreg' element={ <LoginReg /> }/> */}
       </Routes>
     </ThemeProvider>
     </>

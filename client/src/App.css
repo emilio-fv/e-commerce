@@ -1,6 +1,10 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Roboto";
+.BannerImg {
+    width: 100%;
+    height: 30%;
+}
+
+.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

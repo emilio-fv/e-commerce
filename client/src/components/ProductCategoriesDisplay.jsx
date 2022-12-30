@@ -1,80 +1,108 @@
-import { Card, Grid, Typography } from '@mui/material';
-import { Container } from '@mui/system';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+import Paper from '@mui/material/Paper';
 import React from "react";
+import Box from '@mui/system/Box';
+import Button from '@mui/material/Button';
+import { useNavigate } from "react-router-dom";
 
 const ProductCategoriesDisplay = (props) => {
+    const navigate = useNavigate();
+
+    const handleClick = (e, category) => {
+        navigate(`/products/${category}`);
+    }
+
     return (
         <>
-            <Typography 
-                variant='h4'   
-                component='div' 
-                sx={{ 
-                    marginY: '50px', 
-                    textAlign: 'center' 
-                }}
+            <Container maxWidth="lg"
+                sx={{ mb: '50px' }}
             >
-                Shop By Category
-            </Typography>
-            <Container maxWidth="lg" sx={{ marginBottom: '50px' }}>
-                <Grid container spacing={4}>
-                    <Grid item xs={3}>
-                        <Card sx={{
-                            paddingY: '75px'
-                        }}>
-                            <Typography
-                                variant='h4'
-                                sx={{
-                                    textAlign: 'center'
-                                }}
-                            >
-                                Women
-                            </Typography>
-                        </Card>
-                    </Grid>
-                    <Grid item xs={3}>
-                        <Card sx={{
-                            paddingY: '75px'
-                        }}>
-                            <Typography
-                                variant='h4'
-                                sx={{
-                                    textAlign: 'center'
-                                }}
-                            >
-                                Men
-                            </Typography>
-                        </Card>
-                    </Grid>
-                    <Grid item xs={3}>
-                        <Card sx={{
-                            paddingY: '75px'
-                        }}>
-                            <Typography
-                                variant='h4'
-                                sx={{
-                                    textAlign: 'center'
-                                }}
-                            >
-                                Unisex
-                            </Typography>
-                        </Card>
-                    </Grid>
-                    <Grid item xs={3}>
-                        <Card sx={{
-                            paddingY: '75px'
-                        }}>
-                            <Typography
-                                variant='h4'
-                                sx={{
-                                    textAlign: 'center'
-                                }}
-                            >
-                                Sale
-                            </Typography>
-                        </Card>
-                    </Grid>
-                </Grid>
+                <Typography 
+                    variant="h4"
+                    component="h2"
+                    sx={{
+                        marginY: '50px',
+                        textAlign: 'center'
+                    }}
+                >
+                    Shop By Category
+                </Typography>
+                <Box
+                    sx={{
+                        display: 'flex',
+                        justifyContent: 'space-evenly',
+                        flexFlow: 'wrap',
+                        gap: 2
+                    }}
+                >
+                    <Paper elevation={4}>
+                        <Button
+                            variant='text'
+                            size='large'
+                            sx={{
+                                width: 250,
+                                height: 250,
+                                fontSize: '2rem',
+                                color: 'black',
+                                fontWeight: 'normal'
+                            }}
+                            onClick={e => handleClick(e,"women")}
+                        >
+                            Women
+                        </Button>
+                    </Paper>
+                    <Paper elevation={4}>
+                        <Button
+                            variant='text'
+                            size='large'
+                            sx={{
+                                width: 250,
+                                height: 250,
+                                fontSize: '2rem',
+                                color: 'black',
+                                fontWeight: 'normal'
+                            }}
+                            onClick={e => handleClick(e,"")}
+                        >
+                            Men
+                        </Button>
+                    </Paper>
+                    <Paper elevation={4}>
+                        <Button
+                            variant='text'
+                            size='large'
+                            sx={{
+                                width: 250,
+                                height: 250,
+                                fontSize: '2rem',
+                                color: 'black',
+                                fontWeight: 'normal'
+                            }}
+                            onClick={e => handleClick(e,"unisex")}
+                        >
+                            Unisex
+                        </Button>
+                    </Paper>
+                    <Paper elevation={4}>
+                        <Button
+                            variant='text'
+                            size='large'
+                            sx={{
+                                width: 250,
+                                height: 250,
+                                fontSize: '2rem',
+                                color: 'black',
+                                fontWeight: 'normal'
+                            }}
+                            onClick={e => handleClick(e,"sale")}
+                        >
+                            Sale
+                        </Button>
+                    </Paper>
+                </Box>
             </Container>
+            
         </>
     )
 }

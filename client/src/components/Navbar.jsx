@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import AppBar from '@mui/material/AppBar';
 import Container from '@mui/material/Container';
 import Toolbar from '@mui/material/Toolbar';
@@ -13,34 +12,35 @@ import Tooltip from '@mui/material/Tooltip';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = (props) => {
     const [ anchorElNav, setAnchorElNav ] = useState(null);
+    const navigate = useNavigate();
 
-    const handleOpenNavMenu = (event) => {
-      setAnchorElNav(event.currentTarget);
+    const handleOpenNavMenu = (e) => {
+      setAnchorElNav(e.currentTarget);
     };
 
-    const handleCloseNavMenu = () => {
-      setAnchorElNav(null);
+    const handleProductLinkClick = (e, category) => {
+        setAnchorElNav(null);
+        navigate(`/products/${category}`);
     };
 
     return (
-        <AppBar position="static">
+        <AppBar position="sticky">
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    {/* Desktop Logo */}
+                    {/* Desktop: Logo */}
                     <Typography
                         variant="h5"
                         noWrap
                         component="a"
                         href="/"
                         sx={{
-                            ml: 3,
                             mr: 2,
                             display: { xs: "none", md: "flex" },
-                            fontFamily: "monospace",
-                            fontWeight: 700,
                             letterSpacing: ".3rem",
                             color: "inherit",
                             textDecoration: "none"
@@ -49,11 +49,11 @@ const Navbar = (props) => {
                         VESTA
                     </Typography>
 
-                    {/* Mobile Menu */}
+                    {/* Mobile: Product Category Links */}
                     <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none"} }}>
                         <IconButton
                             size="large"
-                            aria-label="account of current user"
+                            aria-label="menu of product categories"
                             aria-controls="menu-appbar"
                             aria-haspopup="true"
                             onClick={handleOpenNavMenu}
@@ -65,36 +65,36 @@ const Navbar = (props) => {
                             id="menu-appbar"
                             anchorEl={anchorElNav}
                             anchorOrigin={{
-                            vertical: "bottom",
-                            horizontal: "left"
+                                vertical: "bottom",
+                                horizontal: "left"
                             }}
                             keepMounted
                             transformOrigin={{
-                            vertical: "top",
-                            horizontal: "left"
+                                vertical: "top",
+                                horizontal: "left"
                             }}
                             open={Boolean(anchorElNav)}
-                            onClose={handleCloseNavMenu}
+                            onClose={handleProductLinkClick}
                             sx={{
-                            display: { xs: "block", md: "none"}
+                                display: { xs: "block", md: "none"}
                             }}
                         >
-                            <MenuItem>
-                                <Typography textAlign="center">Women</Typography>
+                            <MenuItem onClick={e => handleProductLinkClick(e, 'women')}>
+                                    <Typography textAlign="center">Women</Typography>
                             </MenuItem>
-                            <MenuItem>
-                                <Typography textAlign="center">Men</Typography>
+                            <MenuItem onClick={e => handleProductLinkClick(e, 'men')}>
+                                    <Typography textAlign="center">Men</Typography>
                             </MenuItem>
-                            <MenuItem>
-                                <Typography textAlign="center">Unisex</Typography>
+                            <MenuItem onClick={e => handleProductLinkClick(e, 'unisex')}>
+                                    <Typography textAlign="center">Unisex</Typography>
                             </MenuItem>
-                            <MenuItem>
-                                <Typography textAlign="center">Sale</Typography>
+                            <MenuItem onClick={e => handleProductLinkClick(e, 'sale')}>
+                                    <Typography textAlign="center">Sale</Typography>
                             </MenuItem>
                         </Menu>
                     </Box>
 
-                    {/* Mobile Logo */}
+                    {/* Mobile: Logo */}
                     <Typography
                         variant="h5"
                         noWrap
@@ -114,50 +114,49 @@ const Navbar = (props) => {
                         VESTA
                     </Typography>
 
-                    {/* Desktop Menu */}
+                    {/* Desktop: Product Category Links */}
                     <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" }}}>
                         <Button
-                            onClick={handleCloseNavMenu}
+                            onClick={e => handleProductLinkClick(e, 'women')}
                             sx={{ my: 2, color: "white", display: "block" }}
                         >
                             Women
                         </Button>
                         <Button
-                            onClick={handleCloseNavMenu}
+                            onClick={e => handleProductLinkClick(e, 'men')}
                             sx={{ my: 2, color: "white", display: "block" }}
                         >
                             Men
                         </Button>
                         <Button
-                            onClick={handleCloseNavMenu}
+                            onClick={e => handleProductLinkClick(e, 'unisex')}
                             sx={{ my: 2, color: "white", display: "block" }}
                         >
                             Unisex
                         </Button>
                         <Button
-                            onClick={handleCloseNavMenu}
+                            onClick={e => handleProductLinkClick(e, 'sale')}
                             sx={{ my: 2, color: "white", display: "block" }}
                         >
                             Sale
                         </Button>
                     </Box>
 
-
-                    {/* Icons */}
+                    {/* Desktop/Mobile: Icons */}
                     <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Account">
                             <IconButton>
-                            <AccountCircleOutlinedIcon />
+                                <AccountCircleOutlinedIcon />
                             </IconButton>
                         </Tooltip>
                         <Tooltip title="Favorites">
                             <IconButton>  
-                            <FavoriteBorderOutlinedIcon />
+                                <FavoriteBorderOutlinedIcon />
                             </IconButton>
                         </Tooltip>
                         <Tooltip title="Shopping Cart">
                             <IconButton>
-                            <ShoppingCartOutlinedIcon />
+                                <ShoppingCartOutlinedIcon />
                             </IconButton>
                         </Tooltip>
                     </Box>

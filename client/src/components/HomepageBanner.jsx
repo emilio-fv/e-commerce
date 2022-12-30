@@ -1,33 +1,16 @@
-import { Card, CardMedia, Container, Typography } from "@mui/material";
-import ClothingBannerImg from "../images/homepage-banner.jpg"
+import Container from '@mui/material/Container';
+import Paper from '@mui/material/Paper';
+import ClothingBannerImg from "../images/banner.png"
 import React from "react";
+
 
 const HomepageBanner = (props) => {
     return (
         <>
             <Container disableGutters maxWidth="xl">
-                <Card sx={{
-                    position: 'relative'
-                }}
-                >
-                    <Typography
-                        component="h1"
-                        sx={{
-                            position: 'absolute',
-                            top: '15vh',
-                            left: '5vw',
-                            fontSize: { sm: '2rem', md: '3rem'}
-                        }}
-                    >
-                        Shop Italy's #1 Retailer
-                    </Typography>
-                    <CardMedia 
-                        sx={{
-                            height: "90vh"
-                        }}
-                        image={ ClothingBannerImg }
-                    />
-                </Card>
+                <Paper elevation={0} sx={{ position: 'relative' }}>
+                    <img src={ClothingBannerImg} alt="Homepage clothing display" className='BannerImg'/>
+                </Paper>
             </Container>
         </>
     )

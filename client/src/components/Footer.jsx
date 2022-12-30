@@ -12,16 +12,16 @@ export default function Footer() {
                                 <Typography variant="h6">Products</Typography>
                             </Box>
                             <Box>
-                                <Link href="/" color="inherit">Unisex</Link>
+                                <Link href="/products/unisex" color="inherit">Unisex</Link>
                             </Box>
                             <Box>
-                                <Link href="/" color="inherit">Women</Link>
+                                <Link href="/products/women" color="inherit">Women</Link>
                             </Box>
                             <Box>
-                                <Link href="/" color="inherit">Men</Link>
+                                <Link href="/products/men" color="inherit">Men</Link>
                             </Box>
                             <Box>
-                                <Link href="/" color="inherit">Sale</Link>
+                                <Link href="/products/sale" color="inherit">Sale</Link>
                             </Box>
                         </Grid>
                         <Grid item xs={12} sm={4}>
