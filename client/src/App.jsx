@@ -7,7 +7,8 @@ import { createTheme, responsiveFontSizes, ThemeProvider } from '@mui/material/s
 import CssBaseline from '@mui/material/CssBaseline';
 import './App.css';
 
-let theme = createTheme({ // Establish styling/theme
+let theme = createTheme({ // Define theme colors and styles
+
 });
 
 theme = responsiveFontSizes(theme); // Make font sizes responsive
