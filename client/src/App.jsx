@@ -1,8 +1,11 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import LoginReg from './views/LoginReg';
 import Homepage from './views/Homepage';
 import Products from './views/Products';
+import ProductView from './views/ProductView';
+import AdminPortal from './views/AdminPortal';
+import UserPortal from './views/UserPortal';
+import Cart from './views/Cart';
 import { createTheme, responsiveFontSizes, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import './App.css';
@@ -20,7 +23,11 @@ function App() {
             <Routes>
                 <Route path='/' element={ <Homepage /> }/>
                 <Route path='/products/:category' element={ <Products /> }/>
-                <Route path='/account' element={ <LoginReg /> }/>
+                <Route path='/products/:id' element={ <ProductView /> }/>
+                <Route path='/cart' element={ <Cart /> }/>
+                <Route path='/account' element={ <UserPortal /> }/>
+                    {/* TODO: nested route for favorites*/}  
+                <Route path='/admin' element={ <AdminPortal /> }/>
             </Routes>
         </ThemeProvider>
     );
