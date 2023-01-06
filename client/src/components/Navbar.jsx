@@ -21,13 +21,15 @@ const Navbar = (props) => {
     const [ anchorNav, setAnchorNav ] = useState(null);
     const navigate = useNavigate();
 
-    const handleOpenNavMenu = (e) => {
+    const handleOpenNavMenu = (e) => { // Mobile: sets nav menu anchor
       setAnchorNav(e.currentTarget);
     };
 
-    // Navbar product category links click event handlers
-    const handleProductCategoryLinkClick = (e, category) => {
+    const handleCloseNavMenu = () => { // Mobile: resets nav menu anchor
         setAnchorNav(null);
+    }
+    
+    const handleProductCategoryLinkClick = (e, category) => { // Navigate to product category view
         if (category === undefined) {
             navigate('/');
         } else {
@@ -49,8 +51,9 @@ const Navbar = (props) => {
         console.log("shopping cart icon clicked")
         // TODO: Navigate to shopping cart
     }
+
     return (
-        <AppBar position="sticky">
+        <AppBar position="sticky" sx={{ background: 'white'}}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     {/* Desktop: Logo ✅ */}
@@ -60,7 +63,7 @@ const Navbar = (props) => {
                             mr: 2,
                             display: { xs: "none", md: "flex" },
                             letterSpacing: ".3rem",
-                            color: "inherit",
+                            color: "black",
                             textDecoration: "none"
                         }}
                     >
@@ -68,7 +71,7 @@ const Navbar = (props) => {
                     </Typography>
                     
 
-                    {/* Mobile: Product Category Links */}
+                    {/* Mobile: Product Category Links ✅*/}
                     <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none"} }}>
                         <IconButton
                             size="large"
@@ -76,7 +79,7 @@ const Navbar = (props) => {
                             aria-controls="menu-appbar"
                             aria-haspopup="true"
                             onClick={handleOpenNavMenu}
-                            color="inherit"
+                            color="black"
                         >
                             <MenuIcon />
                         </IconButton>
@@ -93,7 +96,7 @@ const Navbar = (props) => {
                                 horizontal: "left"
                             }}
                             open={Boolean(anchorNav)}
-                            onClose={e => handleProductCategoryLinkClick(e)}
+                            onClose={handleCloseNavMenu}
                             sx={{
                                 display: { xs: "block", md: "none"}
                             }}
@@ -118,10 +121,8 @@ const Navbar = (props) => {
                         sx={{
                             display: { xs: 'flex', md: 'none' },
                             flexGrow: 1,
-                            fontFamily: 'monospace',
-                            fontWeight: 700,
                             letterSpacing: '.3rem',
-                            color: 'inherit',
+                            color: 'black',
                             textDecoration: 'none',
                         }}
                     >
@@ -134,7 +135,7 @@ const Navbar = (props) => {
                             <Button
                                 key={key}
                                 onClick={e => handleProductCategoryLinkClick(e, category)}
-                                sx={{ my: 2, color: "white", display: "block" }}
+                                sx={{ my: 2, color: "black", display: "block" }}
                             >
                                 {category}
                             </Button>
