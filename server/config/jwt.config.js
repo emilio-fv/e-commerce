@@ -1,6 +1,6 @@
-const jwt = require('jsonwebtoken');
+const jwt = require('jsonwebtoken'); // Import JSON Web Token
 
-const authenticate = (req, res, next) => {
+const authenticate = (req, res, next) => { // Authentication function
     jwt.verify(req.cookies.userToken, process.env.SECRET_KEY, (err, payload) => {
         if (err) {
             res.status(401).json({ verified: false});
@@ -11,4 +11,4 @@ const authenticate = (req, res, next) => {
 
 }
 
-module.exports = { authenticate: authenticate };
+module.exports = { authenticate: authenticate }; // Export Authenticate function

@@ -1,8 +1,8 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose'); // Import mongoose
 
-const dbName = 'e_commerce_proj';
+const dbName = 'Vesta'; // Name database
 
-mongoose.connect(`mongodb://127.0.0.1:27017/${dbName}`, {
+mongoose.connect(`mongodb://127.0.0.1:27017/${dbName}`, { // Connect to database
     useNewUrlParser: true,
     useUnifiedTopology: true
     })
@@ -10,5 +10,5 @@ mongoose.connect(`mongodb://127.0.0.1:27017/${dbName}`, {
         console.log(`Established connection to database ${dbName}`)
     })
     .catch((error) => {
-        console.log("Hmph something went wrong", error)
+        console.log("Hmm something went wrong", error)
     })

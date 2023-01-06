@@ -7,23 +7,21 @@ import { createTheme, responsiveFontSizes, ThemeProvider } from '@mui/material/s
 import CssBaseline from '@mui/material/CssBaseline';
 import './App.css';
 
-let theme = createTheme({
+let theme = createTheme({ // Establish styling/theme
 });
 
-theme = responsiveFontSizes(theme);
+theme = responsiveFontSizes(theme); // Make font sizes responsive
 
 function App() {
     return (
-        <>
-            <ThemeProvider theme={theme}>
-                <CssBaseline enableColorScheme/>
-                <Routes>
-                    <Route path='/' element={ <Homepage /> }/>
-                    <Route path='/products/:category' element={ <Products /> }/>
-                    <Route path='/account' element={ <LoginReg /> }/>
-                </Routes>
-            </ThemeProvider>
-        </>
+        <ThemeProvider theme={theme}>
+            <CssBaseline enableColorScheme/>
+            <Routes>
+                <Route path='/' element={ <Homepage /> }/>
+                <Route path='/products/:category' element={ <Products /> }/>
+                <Route path='/account' element={ <LoginReg /> }/>
+            </Routes>
+        </ThemeProvider>
     );
 }
 
